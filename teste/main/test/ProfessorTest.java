@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import main.java.model.Professor;
+import main.java.service.ProfessorService;
+
 class ProfessorTest {
 
 	private ProfessorService professor;
@@ -62,7 +65,7 @@ class ProfessorTest {
     @Test
     // TC_005: Senhas não coincidem
     void naoDeveCadastrarProfessorComSenhasDiferentes() {
-        Professor prof= new Professor("João Pereira", "456.789.123-55", "joao@exemplo.com", "Joao12
+        Professor prof= new Professor("João Pereira", "456.789.123-55", "joao@exemplo.com", "Joao12");
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             professor.cadastrarProfessor(prof, "Joao4321");
         });
