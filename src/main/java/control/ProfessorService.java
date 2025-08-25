@@ -1,4 +1,4 @@
-package main.java.service;
+package main.java.control;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,11 @@ public class ProfessorService {
         // Lógica para a validação do CPF.
         if (professoresDB.stream().anyMatch(p -> p.getCpf().equals(professor.getCpf()))) {
             throw new IllegalArgumentException("CPF já cadastrado");
+        }
+        
+       //  Lógica para validar o e-mail duplicado.
+        if (professoresDB.stream().anyMatch(p -> p.getEmail().equals(professor.getEmail()))) {
+            throw new IllegalArgumentException("E-mail já cadastrado");
         }
         
         //Adiciona o professor ao banco de dados.
