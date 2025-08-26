@@ -10,7 +10,11 @@ public class DisciplinaService {
     private List<Disciplina> disciplinasDB = new ArrayList<>();
 
     public Disciplina cadastrarDisciplina(Disciplina disciplina) {
-        // Por enquanto, apenas adicionamos à lista.
+        
+    	// Lógica para validar código duplicado.
+        if (disciplinasDB.stream().anyMatch(d -> d.getCodigo().equals(disciplina.getCodigo()))) {
+            throw new IllegalArgumentException("Código de disciplina já existente");
+        }
         disciplinasDB.add(disciplina);
         return disciplina;
     }
