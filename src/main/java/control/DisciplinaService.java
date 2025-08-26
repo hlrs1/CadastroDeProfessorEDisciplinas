@@ -15,6 +15,12 @@ public class DisciplinaService {
         if (disciplinasDB.stream().anyMatch(d -> d.getCodigo().equals(disciplina.getCodigo()))) {
             throw new IllegalArgumentException("Código de disciplina já existente");
         }
+        
+        // Lógica para validar o formato do código.
+        // A expressão "[a-zA-Z0-9]+" verifica se a string contém apenas letras (maiúsculas/minúsculas) e números.
+        if (!disciplina.getCodigo().matches("[a-zA-Z0-9]+")) {
+             throw new IllegalArgumentException("O código da disciplina deve conter apenas letras e números");
+        }
         disciplinasDB.add(disciplina);
         return disciplina;
     }
