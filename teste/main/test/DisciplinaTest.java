@@ -5,6 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import main.java.control.DisciplinaService;
+import main.java.model.Disciplina;
+import main.java.model.Professor;
+
 class DisciplinaTest {
 
 	private DisciplinaService disciplina;
@@ -21,7 +25,7 @@ class DisciplinaTest {
     // TC_008: Cadastro de disciplina com dados válidos
     void deveCadastrarDisciplinaComDadosValidos() {
         Disciplina disc = new Disciplina("LPO001", "LPOO", 60, professorPadrao);
-        disciplina.cadastrarDisciplina(disciplina);
+        disciplina.cadastrarDisciplina(disc);
         assertFalse(disciplina.getDisciplinasDB().isEmpty());
     }
     
