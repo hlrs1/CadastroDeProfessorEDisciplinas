@@ -85,7 +85,7 @@ class DisciplinaTest {
     // TC_014: Descrição maior que 500 caracteres
     void naoDeveCadastrarDisciplinaComDescricaoLonga() {
         Disciplina disc = new Disciplina("WEB301", "Web 3", 80, professorPadrao);
-        disciplina.setDescricao("A".repeat(501));
+        disc.setDescricao("A".repeat(501));
         
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             disciplina.cadastrarDisciplina(disc);
