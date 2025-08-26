@@ -2,6 +2,7 @@ package main.java.control;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import main.java.model.Professor;
 
@@ -21,6 +22,12 @@ public class ProfessorService {
        //  Lógica para validar o e-mail duplicado.
         if (professoresDB.stream().anyMatch(p -> p.getEmail().equals(professor.getEmail()))) {
             throw new IllegalArgumentException("E-mail já cadastrado");
+        }
+        
+       //  Lógica para validar o formato do e-mail.
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+        if (!Pattern.compile(emailRegex).matcher(professor.getEmail()).matches()) {
+            throw new IllegalArgumentException("Erro de validação no campo e-mail");
         }
         
         //Adiciona o professor ao banco de dados.
