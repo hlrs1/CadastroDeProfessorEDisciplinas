@@ -21,6 +21,12 @@ public class DisciplinaService {
         if (!disciplina.getCodigo().matches("[a-zA-Z0-9]+")) {
              throw new IllegalArgumentException("O código da disciplina deve conter apenas letras e números");
         }
+        
+        // Lógica para validar se a carga horária é maior que 0.
+        if (disciplina.getCargaHoraria()<=0) {
+             throw new IllegalArgumentException("Carga horária deve ser maior que 0");
+        }
+        
         disciplinasDB.add(disciplina);
         return disciplina;
     }
