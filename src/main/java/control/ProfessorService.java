@@ -42,6 +42,12 @@ public class ProfessorService {
             throw new IllegalArgumentException("A senha deve conter letras e números");
         }
         
+        //  Lógica para validar o nome.
+        // A expressão ".*\\d.*" verifica se existe qualquer dígito na string.
+        if (professor.getNome().matches(".*\\d.*")) {
+             throw new IllegalArgumentException("Erro de validação no campo nome");
+        }
+        
         //Adiciona o professor ao banco de dados.
         professoresDB.add(professor);
         return professor;
