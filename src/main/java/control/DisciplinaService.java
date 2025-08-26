@@ -32,6 +32,11 @@ public class DisciplinaService {
             throw new IllegalArgumentException("Informe o professor");
         }
         
+     // Lógica para validar se o Código da disciplina tem menos de 5 caracteres.
+        if (disciplina.getCodigo().length()<5) {
+            throw new IllegalArgumentException("Erro de validação do código - Código muito curto");
+        }
+        
         
         
         disciplinasDB.add(disciplina);

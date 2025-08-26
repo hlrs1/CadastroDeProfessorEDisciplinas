@@ -78,7 +78,7 @@ class DisciplinaTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             disciplina.cadastrarDisciplina(disc);
         });
-        assertEquals("Erro de validação do nome", exception.getMessage());
+        assertEquals("Erro de validação do código - Código muito curto", exception.getMessage());
     }
     
     @Test
