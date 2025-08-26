@@ -43,6 +43,11 @@ public class DisciplinaService {
             throw new IllegalArgumentException("Descrição excede 500 caracteres");
         }
         
+	    // Lógica para validar se o nome foi informado.
+	        // Verificamos se o nome é nulo ou se está vazio (ignorando espaços em branco).
+	        if (disciplina.getNome() == null || disciplina.getNome().trim().isEmpty()) {
+	            throw new IllegalArgumentException("Nome é obrigatório");
+	        }
         
         
         
