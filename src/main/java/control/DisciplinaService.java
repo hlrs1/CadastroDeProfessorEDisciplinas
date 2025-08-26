@@ -27,6 +27,13 @@ public class DisciplinaService {
              throw new IllegalArgumentException("Carga horária deve ser maior que 0");
         }
         
+        // Lógica para validar se o professor foi informado.
+        if (disciplina.getProfessor() == null) {
+            throw new IllegalArgumentException("Informe o professor");
+        }
+        
+        
+        
         disciplinasDB.add(disciplina);
         return disciplina;
     }
