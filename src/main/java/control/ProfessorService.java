@@ -29,6 +29,10 @@ public class ProfessorService {
         if (!Pattern.compile(emailRegex).matcher(professor.getEmail()).matches()) {
             throw new IllegalArgumentException("Erro de validação no campo e-mail");
         }
+       //  Lógica para validar se as senhas coincidem.
+        if (!professor.getSenha().equals(confirmarSenha)) {
+            throw new IllegalArgumentException("Senhas não coincidem");
+        }
         
         //Adiciona o professor ao banco de dados.
         professoresDB.add(professor);
